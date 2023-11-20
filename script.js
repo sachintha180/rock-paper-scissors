@@ -7,13 +7,8 @@
 
 function getComputerChoice() {
 
-    // initialize array of choices
     let choices = ["Rock", "Paper", "Scissors"];
-
-    // pick random choice
     let choice = choices[Math.floor(Math.random() * choices.length)];
-
-    // return choice
     return choice;
 }
 
@@ -23,12 +18,13 @@ function getComputerChoice() {
  * 
  * @param {string} playerSelection - the player's choice string; rock / paper / scissors.
  * @param {string} computerSelection - the computer's random choice string; rock / paper / scissors".
- * @returns {string} - a message string declaring the winner.
+ * @returns {Object} - an object containing a message and flag:
+ * - message: a string declaring the winner
+ * - flag: an integer declaring the winner (0 for tie, 1 for player, -1 for computer)
  */
 
 function playRound(playerSelection, computerSelection) {
 
-    // initialize object of result combinations
     const combinations = {
         "Rock": {
             winTo: "Scissors",
@@ -44,23 +40,26 @@ function playRound(playerSelection, computerSelection) {
         }
     }
 
-    // set player and computer selections to capitalized
     playerSelection = capitalize(playerSelection);
     computerSelection = capitalize(computerSelection);
 
-    // determine if tie
     if (playerSelection === computerSelection) {
-        return "Tie!"
+        return {
+            message: "Tie!",
+            flag: 0
+        }
     }
-
-    // otherwise, determine if player won
     else if (combinations[playerSelection].winTo === computerSelection) {
-        return `You Win! ${playerSelection} beats ${computerSelection}`;
+        return {
+            message: `You Win! ${playerSelection} beats ${computerSelection}`,
+            flag: 1
+        };
     }
-
-    // otherwise, determine if player lost
     else if (combinations[playerSelection].loseTo === computerSelection) {
-        return `You Lose! ${computerSelection} beats ${playerSelection}`;
+        return {
+            message: `You Lose! ${computerSelection} beats ${playerSelection}`,
+            flag: -1
+        };
     }
 }
 
@@ -74,16 +73,47 @@ function playRound(playerSelection, computerSelection) {
 
 function capitalize(text) {
 
-    // slice and extract portions of the string for capitalization
     let capitalized = text.at(0).toUpperCase() + text.toLowerCase().slice(1,);
-
-    // return capitalized string
     return capitalized;
+}
+
+/**
+ * simulates a number of rock-paper-scissor rounds.
+ * 
+ * @param {number} rounds - number of rock-paper-scissor rounds.
+ * @returns {string} - a message string declaring the overall winner.
+ */
+
+function game(rounds) {
+
+    let score = 0;
+
+    for (let i = rounds; i > 0; i--) {
+
+        let playerChoice = prompt(`Round ${rounds - i + 1}/${rounds} - Enter your choice (rock / paper / scissors):`);
+        let computerChoice = getComputerChoice();
+
+        let result = playRound(playerChoice, computerChoice);
+        score += result.flag;
+
+        console.log(result.message);
+    }
+
+    if (score > 0) {
+        return `You Win! You won ${score}/${rounds} rounds.`
+    }
+    else if (score < 0) {
+        return `You Lose! The computer won ${score * -1}/${rounds} rounds.`
+    }   
+    else {
+        return `You Tied!`
+    }
 }
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    console.log(getComputerChoice());
+    let message = game(5);
+    console.log(message);
 
 })
