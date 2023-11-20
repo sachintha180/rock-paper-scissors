@@ -1,19 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/svg" href="images/rope.svg ">
     <link href="styles.css" type="text/css" rel="stylesheet">
     <script src="script.js" type="text/javascript"></script>
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
     <header>
-        <h1>Rock Paper Scissors v1.0</h1>
-        <h2>By <a href="https://github.com/sachintha180">@sachintha180</a></h2>
+        <h1>Pol Kola Lanu</h1>
+        <img src="images/srilanka-flag.png" alt="A tiny image of the Sri Lankan flag" height="20">
+        <p>A Sri Lankan clone of Rock Paper Scissors, for the Odin Project.</p>
     </header>
     <main>
-        <p>Play on the console by pressing F12.</p>
+        <section id="instructions">
+            <h2>Instructions</h2>
+            <img src="images/chevron-down.svg" alt="A chevron-down icon to see more" height="20">
+            <p>Pol, Kola and Lanu are Sinhala (the main language spoken in Sri Lanka) words, spelt using English
+                characters:</p>
+            <ul>
+                <li>Pol (coconut) is equivalent to Rock.</li>
+                <li>Kola (leaves) is equivalent to Paper.</li>
+                <li>Lanu (rope) is equivalent to Scissors.</li>
+            </ul>
+            <p>This choice of these words was mainly influenced by Sri Lanka being a largely cocunut-centered economy.
+            <p>The coconut tree is used for roofing (by tatching its leaves), making ropes (by weaving coconut fibres)
+                and so much more.</p>
+            <p>We use the coconut for a lot of things, and now as a replacement to rock paper scissors too.</p>
+        </section>
+        <section id="rounds-container">
+            <h2>Select the number of rounds you wish to play</h2>
+            <label id="rounds-label" for="rounds">Rounds: 3</label>
+            <input id="rounds-count" type="range" list="rounds-counts" min="3" max="9" step="2" value="3">
+            <datalist id="rounds-counts">
+                <option value="3"></option>
+                <option value="5"></option>
+                <option value="7"></option>
+                <option value="9"></option>
+            </datalist>
+            <input id="rounds-continue" type="button" value="Continue">
+        </section>
+        <section id="rounds-container">
+            <h2 id="current-round-label">Round M/N</h2>
+            <h2>Select your choice</h2>
+            <div id="rock">
+                <img src="images/coconut.svg" alt="A vector drawing of a coconut" height="100">
+                <p class="image-label">Pol (i.e. Rock)</p>
+            </div>
+            <div id="paper">
+                <img src="images/leaf.svg" alt="A vector drawing of a coconut leaf" height="100">
+                <p class="image-label">Kola (i.e. Paper)</p>
+            </div>
+            <div id="scissors">
+                <img src="images/rope.svg" alt="A vector drawing of a rope made of coconut fibres" height="100">
+                <p class="image-label">Rope (i.e. Scissors)</p>
+            </div>
+        </section>
     </main>
+    <footer>
+        <p>Copyright © Sachintha Senanayake 2023</p>
+    </footer>
 </body>
+
 </html>

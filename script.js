@@ -104,7 +104,7 @@ function game(rounds) {
     }
     else if (score < 0) {
         return `You Lose! The computer won ${score * -1}/${rounds} rounds.`
-    }   
+    }
     else {
         return `You Tied!`
     }
@@ -113,7 +113,14 @@ function game(rounds) {
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
-    let message = game(5);
-    console.log(message);
+    let roundsSelector = document.querySelector("#rounds-count");
+
+    roundsSelector.addEventListener("change", (event) => {
+
+        let rounds = roundsSelector.value;
+
+        document.querySelector("#rounds-label").innerHTML = `Rounds: ${rounds}`;
+
+    })
 
 })
