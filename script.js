@@ -99,31 +99,82 @@ function game(rounds) {
         console.log(result.message);
     }
 
-    if (score > 0) {
-        return `You Win! You won ${score}/${rounds} rounds.`
-    }
-    else if (score < 0) {
-        return `You Lose! The computer won ${score * -1}/${rounds} rounds.`
-    }
-    else {
-        return `You Tied!`
-    }
+
 }
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
+    // initialize base score
+    let score = 0;
+
+    // initialize current round
+    let currentRound = 1;
+
+    // intialize max rounds
+    let maxRounds = 0;
+
     // update round count based on slider position
-    let roundsSelector = document.querySelector("#rounds-count");
+    const roundsSelector = document.querySelector("#rounds-count");
+    document.querySelector("#rounds-label").innerHTML = `Rounds: ${roundsSelector.value}`;
     roundsSelector.addEventListener("change", (event) => {
         let rounds = roundsSelector.value;
         document.querySelector("#rounds-label").innerHTML = `Rounds: ${rounds}`;
-
     });
 
     // show/hide backstory (i.e. instructions) panel when chevron is pressed
-    let instructionsBtn = document.querySelector("#instructions-btn");
+    const instructionsBtn = document.querySelector("#instructions-btn");
     instructionsBtn.addEventListener("click", (event) => {
         document.querySelector("#instructions-section").classList.toggle("invisible-section");
-    })
+    });
+
+    let continueBtn = document.querySelector("#continue-btn");
+    continueBtn.addEventListener("click", (event) => {
+        // hide rounds selection section
+        document.querySelector("#rounds-container").classList.add("invisible-section");
+        // show game container
+        document.querySelector("#game-container-elements").classList.remove("invisible-section");
+        // update max rounds
+        maxRounds = document.querySelector("#rounds-count").value;
+        // display rounds on screen
+        document.querySelector("#current-round-label").innerHTML = `Round ${currentRound}/${maxRounds}`;
+    });
+
+    let choiceBtns = document.querySelectorAll("#game-selectors div");
+    choiceBtns.forEach((choiceBtn) => {
+        choiceBtn.addEventListener("click", (event) => {
+            // retrieve player choice and computer choice
+            let playerChoice = choiceBtn.getAttribute("id");
+            let computerChoice = getComputerChoice();
+            // play single round
+            let result = playRound(playerChoice, computerChoice);
+            // update player score
+            score += result.flag;
+            // display score
+            document.querySelector("#game-score").innerHTML = `Score: ${score}`;
+            // display result message
+            document.querySelector("#game-result").innerHTML = result.message;
+            // update current round
+            currentRound += 1;
+            // reset game
+            if (currentRound > maxRounds) {
+                // display alert based on score
+                if (score > 0) {
+                    alert(`You Win! You won ${score} round(s) more than the computer.`);
+                }
+                else if (score < 0) {
+                    alert(`You Lose! The computer won ${-1 * score} round(s) more than you.`);
+                }
+                else {
+                    alert(`You Tied!`);
+                }
+                // reload window on alert confirmation
+                window.location.reload();
+            }
+            else {
+                // display rounds on screen
+                document.querySelector("#current-round-label").innerHTML = `Round ${currentRound}/${maxRounds}`;
+            }
+        });
+    });
 })
