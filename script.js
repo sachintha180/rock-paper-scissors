@@ -77,31 +77,6 @@ function capitalize(text) {
     return capitalized;
 }
 
-/**
- * simulates a number of rock-paper-scissor rounds.
- * 
- * @param {number} rounds - number of rock-paper-scissor rounds.
- * @returns {string} - a message string declaring the overall winner.
- */
-
-function game(rounds) {
-
-    let score = 0;
-
-    for (let i = rounds; i > 0; i--) {
-
-        let playerChoice = prompt(`Round ${rounds - i + 1}/${rounds} - Enter your choice (rock / paper / scissors):`);
-        let computerChoice = getComputerChoice();
-
-        let result = playRound(playerChoice, computerChoice);
-        score += result.flag;
-
-        console.log(result.message);
-    }
-
-
-}
-
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
