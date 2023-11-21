@@ -49,13 +49,14 @@ header img {
 }
 
 #instructions .horizontal-section {
+    height: 30px;
     background-color: #ED9A34;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
 }
 
 #instructions .horizontal-section img {
-    height: 30px;
+    height: 20px;
     padding: 0.4rem;
     border-radius: 0.5rem;
     cursor: pointer;
@@ -75,7 +76,19 @@ header img {
     margin-top: 0;
 }
 
-#rounds-container h2 {
+#instructions .info-section {
+    max-height: 500px; /* Set an unrealistic maximum height */
+    transition: max-height 0.5s ease-in-out, padding 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+#instructions .invisible-section {
+    max-height: 0;
+    padding: 0 1rem;
+}
+
+#rounds-container h2, #game-container h2 {
+    height: 30px;
     background-color: #ED9A34;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
@@ -110,10 +123,6 @@ header img {
 
 #rounds-container .info-section #rounds-continue:hover {
     background-color: #ffffff;
-}
-
-#game-container {
-    display: none;
 }
 
 footer {

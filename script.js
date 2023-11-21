@@ -113,14 +113,17 @@ function game(rounds) {
 
 document.addEventListener("DOMContentLoaded", (event) => {
 
+    // update round count based on slider position
     let roundsSelector = document.querySelector("#rounds-count");
-
     roundsSelector.addEventListener("change", (event) => {
-
         let rounds = roundsSelector.value;
-
         document.querySelector("#rounds-label").innerHTML = `Rounds: ${rounds}`;
 
-    })
+    });
 
+    // show/hide backstory (i.e. instructions) panel when chevron is pressed
+    let instructionsBtn = document.querySelector("#instructions-btn");
+    instructionsBtn.addEventListener("click", (event) => {
+        document.querySelector("#instructions-section").classList.toggle("invisible-section");
+    })
 })
