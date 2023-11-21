@@ -1,5 +1,135 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,700;1,9..40,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 html {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Libre Baskerville', sans-serif;
+}
+
+body {
+    margin: 1rem;
+    color: #351d00;
+}
+
+body>* {
+    margin: 0.5rem 0;
+}
+
+h1,
+h2,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.horizontal-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+header {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: flex-start;
+    background-color: #ED7A34;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+header h1,
+header p {
+    margin: 0.5rem 0;
+}
+
+header h1 {
+    font-weight: 700;
+}
+
+header img {
+    height: 50px;
+}
+
+#instructions .horizontal-section {
+    background-color: #ED9A34;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+#instructions .horizontal-section img {
+    height: 30px;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid #351d0022;
+    transition: background-color 0.1s ease-in-out
+}
+
+#instructions .horizontal-section img:hover {
+    background-color: #ffffff;
+}
+
+.info-section {
+    padding: 1rem;
+    background-color: #ED9A3488;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin: 0.5rem 0.5rem;
+    margin-top: 0;
+}
+
+#rounds-container h2 {
+    background-color: #ED9A34;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+#rounds-container .info-section {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+#rounds-container .info-section #rounds-label {
+    font-size: 1.5rem;
+}
+
+#rounds-container .info-section #rounds-count {
+    width: 80%;
+}
+
+#rounds-container .info-section #rounds-continue {
+    font-family: 'Playfair Display', sans-serif;
+    font-size: 20px;
+    background-color: #ED9A34;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: 2px solid #351d0022;
+    transition: background-color 0.1s ease-in-out
+}
+
+#rounds-container .info-section #rounds-continue:hover {
+    background-color: #ffffff;
+}
+
+#game-container {
+    display: none;
+}
+
+footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 0.5rem 0;
+    background-color: #351d00;
+    color: #ffffff;
+    width: 100vw;
+}
+
+@media screen and (min-width: 1024px) {
+    body {
+        margin: 1rem 20vw;
+    }
 }

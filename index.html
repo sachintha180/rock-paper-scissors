@@ -12,39 +12,49 @@
 
 <body>
     <header>
-        <h1>Pol Kola Lanu</h1>
-        <img src="images/srilanka-flag.png" alt="A tiny image of the Sri Lankan flag" height="20">
+        <div class="horizontal-section">
+            <h1>Pol Kola Lanu</h1>
+            <img src="images/srilanka-flag.png" alt="Sri lankan flag" height="20">
+        </div>
         <p>A Sri Lankan clone of Rock Paper Scissors, for the Odin Project.</p>
     </header>
     <main>
         <section id="instructions">
-            <h2>Instructions</h2>
-            <img src="images/chevron-down.svg" alt="A chevron-down icon to see more" height="20">
-            <p>Pol, Kola and Lanu are Sinhala (the main language spoken in Sri Lanka) words, spelt using English
-                characters:</p>
-            <ul>
-                <li>Pol (coconut) is equivalent to Rock.</li>
-                <li>Kola (leaves) is equivalent to Paper.</li>
-                <li>Lanu (rope) is equivalent to Scissors.</li>
-            </ul>
-            <p>This choice of these words was mainly influenced by Sri Lanka being a largely cocunut-centered economy.
-            <p>The coconut tree is used for roofing (by tatching its leaves), making ropes (by weaving coconut fibres)
-                and so much more.</p>
-            <p>We use the coconut for a lot of things, and now as a replacement to rock paper scissors too.</p>
+            <div class="horizontal-section">
+                <h2>Backstory</h2>
+                <img src="images/chevron-down.svg" alt="A chevron-down icon to see more" height="20">
+            </div>
+            <div class="info-section">
+                <p>Pol, Kola and Lanu are Sinhala (the main language spoken in Sri Lanka) words, spelt using English
+                    characters:</p>
+                <ul>
+                    <li>Pol (coconut) is equivalent to Rock.</li>
+                    <li>Kola (leaves) is equivalent to Paper.</li>
+                    <li>Lanu (rope) is equivalent to Scissors.</li>
+                </ul>
+                <p>This choice of these words was mainly influenced by Sri Lanka being a largely cocunut-centered
+                    economy.
+                <p>The coconut tree is used for roofing (by tatching its leaves), making ropes (by weaving coconut
+                    fibres)
+                    and so much more.</p>
+                <p>We use the coconut for a lot of things, and now as a replacement to rock paper scissors too.</p>
+            </div>
         </section>
         <section id="rounds-container">
             <h2>Select the number of rounds you wish to play</h2>
-            <label id="rounds-label" for="rounds">Rounds: 3</label>
-            <input id="rounds-count" type="range" list="rounds-counts" min="3" max="9" step="2" value="3">
-            <datalist id="rounds-counts">
-                <option value="3"></option>
-                <option value="5"></option>
-                <option value="7"></option>
-                <option value="9"></option>
-            </datalist>
-            <input id="rounds-continue" type="button" value="Continue">
+            <div class="info-section">
+                <label id="rounds-label" for="rounds">Rounds: 3</label>
+                <input id="rounds-count" type="range" list="rounds-counts" min="3" max="9" step="2" value="3">
+                <datalist id="rounds-counts">
+                    <option value="3"></option>
+                    <option value="5"></option>
+                    <option value="7"></option>
+                    <option value="9"></option>
+                </datalist>
+                <input id="rounds-continue" type="button" value="Continue">
+            </div>
         </section>
-        <section id="rounds-container">
+        <section id="game-container">
             <h2 id="current-round-label">Round M/N</h2>
             <h2>Select your choice</h2>
             <div id="rock">
